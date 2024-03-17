@@ -4,18 +4,9 @@
 
 @import url("https://fonts.googleapis.com/css?family=Vibur&display=swap");
 
-:root {
-  --grid: 8px;
-  --pink: #fd3afd;
-  --pinkDark: #690169;
-  --greyLight: #515b7d;
-  --black: #1d212e;
-  --borderWidth: 4px;
-  --borderRadius: 8px;
-}
-
 body {
-  background: var(--black);
+  /* background: var(--black); */
+  @apply dark:bg-black;
   font-family: "Vibur", cursive;
   user-select: none;
 }
@@ -26,9 +17,7 @@ body {
   box-sizing: border-box;
 }
 .todo-deck {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @apply flex flex-col items-center;
 }
 
 .columns {
@@ -36,64 +25,34 @@ body {
 }
 
 .column {
-  margin: calc(var(--grid) / 2);
-  border: var(--borderWidth) solid #0ff0fc;
-  border-radius: var(--borderRadius);
-  background-color: #2a2f41;
+  @apply m-4  bg-gray-200  ring-1 ring-gray-300 dark:bg-[#000000] rounded-xl;
 }
 
 .column-title {
-  font-size: 40px;
-  color: var(--pink);
-  text-shadow: 0px 0px 2px var(--pinkDark),
-    0px 0px 15px rgba(255, 110, 255, 0.5);
-  text-align: center;
-  margin: 0;
-}
-
-.column-title:hover {
-  text-shadow: 0px 0px 2px var(--pinkDark),
-    0px 0px 15px rgba(255, 110, 255, 0.8);
-}
-
-.task-list {
-  /* this has no visible impact, but is in line with the absolute position spacing.
-  doing this ensures that dropping into an empty list will be in the correct visual position */
-  padding-left: var(--grid);
-  padding-right: var(--grid);
-  scrollbar-color: dark;
+  @apply text-3xl font-bold text-black dark:text-white flex justify-center items-center py-4;
 }
 
 .task-list::-webkit-scrollbar {
-  width: 1em;
+  width: 0.5em;
 }
-
-.task-list::-webkit-scrollbar-track {
-  background-color: var(--greyLight);
-  borderradius: var(--borderRadius);
-}
-
 .task-list::-webkit-scrollbar-thumb {
-  background-color: var(--pink);
+  @apply bg-slate-400 dark:bg-white;
 }
 
 .item {
-  background: #333851;
-  border: var(--borderWidth) solid mediumpurple;
-  box-sizing: border-box;
-  border-radius: var(--borderRadius);
-  color: #cdd5ee;
-  font-size: 30px;
+  @apply flex justify-center items-center 
+  bg-gray-200  ring-1 ring-gray-300 dark:bg-[#000000] rounded-xl 
+  p-4  
+text-black dark:text-white
+  border border-transparent border-indigo-50
+  shadow text-2xl;
   user-select: none;
-
-  /* center align text */
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .item.is-dragging {
-  background: #515b7d;
-  border-color: #08ff08;
-  box-shadow: 0px 0px 2px rgb(8, 58, 30), 0px 0px 10px MediumSeaGreen;
+  @apply shadow-lg border border-transparent dark:bg-slate-600 border-indigo-50;
+}
+
+.text-shadow {
+  text-shadow: -1px 0 #ececec, 0 1px #ececec, 1px 0 #ececec, 0 -1px #ececec;
 }
