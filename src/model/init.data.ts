@@ -1,6 +1,6 @@
 import { TodoItem, TodoData } from ".";
 
-let uniqueId = 0;
+let uniqueId = 1;
 function getItems(count: number): TodoItem[] {
   return Array.from({ length: count }, (v, k) => {
     const id = uniqueId++;
@@ -13,23 +13,23 @@ function getItems(count: number): TodoItem[] {
 
 const initial: TodoData = {
   columns: {
-    "column-0": {
-      id: "column-0",
+    TODO: {
+      id: "TODO",
       title: "TODO",
-      items: getItems(10),
+      items: getItems(4),
     },
-    "column-1": {
-      id: "column-1",
+    DONE: {
+      id: "DONE",
       title: "DONE",
-      items: getItems(20),
+      items: getItems(5),
     },
-    "column-2": {
-      id: "column-2",
+    SCHEDULER: {
+      id: "SCHEDULER",
       title: "SCHEDULER",
-      items: getItems(20),
+      items: [],
     },
   },
-  columnOrder: ["column-0", "column-1", "column-2"],
+  columnOrder: ["TODO", "DONE", "SCHEDULER"],
 };
 
 export default function getInitialData() {

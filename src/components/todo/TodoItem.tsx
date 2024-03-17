@@ -24,7 +24,12 @@ export function Item({
       })}
       className={`item ${snapshot.isDragging ? "is-dragging" : ""}`}
     >
-      {item.text}
+      <div>
+        <p>{item.text}</p>
+        {item.scheduler ? (
+          <p className="text-sm">next:{item.scheduler?.due?.format()}</p>
+        ) : null}
+      </div>
     </div>
   );
 }

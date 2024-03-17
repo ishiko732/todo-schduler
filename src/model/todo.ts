@@ -1,6 +1,9 @@
+import {Card} from "ts-fsrs"
+
 type TodoItem = {
   id: string;
   text: string;
+  scheduler?: Card;
 };
 
 type TodoColumn = {
