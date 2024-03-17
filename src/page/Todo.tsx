@@ -1,22 +1,16 @@
 "use client";
-import TodoLibraryExample from "@todo/components/TodoLibraryExample";
-import { TItems } from "@todo/model";
-import { useState } from "react";
+import React from "react";
+import { DragDropContext } from "react-beautiful-dnd";
+import { TodoDeck } from "@todo/components/todo";
+import { useDrag } from "@todo/hooks/useDrag";
 
 export default function TodoPage() {
-  const [items, setItems] = useState<TItems>({
-    todo: [...Array(5)].map((_, i) => ({
-      index: i,
-      id: `${i}${i}${i}`,
-      title: `Title ${i + 1}000`,
-      status: "todo",
-    })),
-    doing: [],
-  });
-
+  const [state, onDragEnd ] = useDrag();
   return (
-    <>
-      <TodoLibraryExample items={items} setItems={setItems} />
-    </>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <div className="app">
+        <TodoDeck decks={state} />
+      </div>
+    </DragDropContext>
   );
 }

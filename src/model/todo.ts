@@ -1,12 +1,19 @@
-export type TItemStatus = "todo" | "doing";
-
-export type TItem = {
+type TodoItem = {
   id: string;
-  status: TItemStatus;
-  title: string;
-  index: number;
+  text: string;
 };
 
-export type TItems = {
-  [key in TItemStatus]: TItem[];
+type TodoColumn = {
+  id: string;
+  title: string;
+  items: TodoItem[];
 };
+
+type TodoData = {
+  columns: {
+    [key: string]: TodoColumn;
+  };
+  columnOrder: string[];
+};
+
+export type { TodoItem, TodoColumn, TodoData };
