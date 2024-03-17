@@ -15,19 +15,22 @@ const initial: TodoData = {
   columns: {
     "column-0": {
       id: "column-0",
-      title: "First column",
+      title: "TODO",
       items: getItems(10),
     },
     "column-1": {
       id: "column-1",
-      title: "Second column",
+      title: "DONE",
+      items: getItems(20),
+    },
+    "column-2": {
+      id: "column-2",
+      title: "SCHEDULER",
       items: getItems(20),
     },
   },
-  columnOrder: ["column-0", "column-1"],
+  columnOrder: ["column-0", "column-1", "column-2"],
 };
-
-
 
 export default function getInitialData() {
   return initial;

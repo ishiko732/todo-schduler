@@ -8,9 +8,7 @@ export default function TodoPage() {
   const [state, onDragEnd ] = useDrag();
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <div className="app">
         <TodoDeck decks={state} />
-      </div>
     </DragDropContext>
   );
 }
