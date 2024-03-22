@@ -1,4 +1,5 @@
 import { TodoItem, TodoData } from ".";
+import { VERSION } from "./version";
 
 let uniqueId = 1;
 function getItems(count: number): TodoItem[] {
@@ -30,6 +31,7 @@ const initial: TodoData = {
     },
   },
   columnOrder: ["TODO", "DONE", "SCHEDULER"],
+  version: VERSION,
 };
 
 export default function getInitialData() {

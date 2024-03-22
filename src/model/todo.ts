@@ -1,4 +1,4 @@
-import {Card} from "ts-fsrs"
+import { Card } from "ts-fsrs";
 
 type TodoItem = {
   id: string;
@@ -17,6 +17,7 @@ type TodoData = {
     [key: string]: TodoColumn;
   };
   columnOrder: string[];
+  version: number;
 };
 
 export type { TodoItem, TodoColumn, TodoData };

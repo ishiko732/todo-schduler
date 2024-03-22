@@ -9,7 +9,6 @@ import {
   Card,
   FSRS,
   Grade,
-  Grades,
   Rating,
   RecordLog,
   createEmptyCard,
@@ -123,6 +122,7 @@ export function useDrag(
       },
     };
 
+    localStorage.setItem("todos", JSON.stringify(newState));
     setState(newState);
   }
 
