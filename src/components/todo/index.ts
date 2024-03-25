@@ -1,7 +1,7 @@
 import { TodoColumn, TodoItem } from "@todo/model";
 
 export * from "./utils"
-export * from "./TodoItem"
+export * from "./TodoInjectItem"
 export * from "./TodoRow"
 export * from "./TodoList"
 export * from "./TodoColumn";

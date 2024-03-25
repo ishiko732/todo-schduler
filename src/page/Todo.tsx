@@ -8,15 +8,19 @@ import getInitialData from "@todo/model/init.data";
 import { VERSION } from "@todo/model/version";
 import { FSRSParameters, fsrs, generatorParameters } from "ts-fsrs";
 import { TodoAdd } from "@todo/components/TodoAdd";
+import { TodoProvider } from "@todo/context/TodoContext";
 
 export default function TodoPage() {
   const { todos, fsrs } = getStorage();
   const [state, onDragEnd, setState] = useDrag(todos, fsrs);
+
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <TodoDeck decks={state} />
-      <TodoAdd setState={setState} />
-    </DragDropContext>
+    <TodoProvider todos={state} setTodos={setState}>
+      <DragDropContext onDragEnd={onDragEnd}>
+        <TodoDeck decks={state} />
+        <TodoAdd setState={setState} />
+      </DragDropContext>
+    </TodoProvider>
   );
 }
 
