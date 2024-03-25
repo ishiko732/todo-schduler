@@ -43,10 +43,13 @@ export function useDrag(
         result.source.index,
         result.destination.index
       );
-      setState({
+      
+      const newState = {
         ...state,
         columnOrder,
-      });
+      };
+      localStorage.setItem("todos", JSON.stringify(newState));
+      setState(newState);
       return;
     }
 
