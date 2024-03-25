@@ -7,8 +7,8 @@ export function TodoAdd({
 }: {
   setState: React.Dispatch<React.SetStateAction<TodoData>>;
 }) {
-  const [control, setControl] = useState("⌘");
-  const todoRef = useRef<HTMLInputElement>(null);
+  const [control, setControl] = useState("⌘"); // display control key
+  const todoRef = useRef<HTMLInputElement>(null); // input ref
   const addTodohandler = useCallback(
     (event: KeyboardEvent) => {
       if (!todoRef.current) {
@@ -43,9 +43,10 @@ export function TodoAdd({
       }
     },
     [setState]
-  );
+  ); // add todo handler
+
   useEffect(() => {
-    setControl(OSCheck());
+    setControl(OSCheck()); // set control key
     document.addEventListener("keydown", addTodohandler);
     return () => {
       document.removeEventListener("keydown", addTodohandler);
@@ -73,7 +74,7 @@ export function TodoAdd({
 
 function OSCheck() {
   var agent = navigator.userAgent.toLowerCase();
-  var isMac = /macintosh|mac os x/i.test(navigator.userAgent);
+  var isMac = /macintosh|mac os x/i.test(agent);
   if (isMac) {
     return "⌘";
   } else {
