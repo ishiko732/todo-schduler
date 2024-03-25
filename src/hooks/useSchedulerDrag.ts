@@ -71,6 +71,7 @@ export function useDrag(
           },
         },
       };
+      localStorage.setItem("todos", JSON.stringify(newState));
       setState(newState);
       return;
     }
